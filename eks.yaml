@@ -1,0 +1,16 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eksworkshop-eksctl
+  region: us-east-1
+  version: "1.19"
+
+availabilityZones: ["us-east-1a", "us-east-1b", "us-east-1c"]
+
+managedNodeGroups:
+  - name: nodegroup
+    desiredCapacity: 1
+    instanceType: t2.medium
+    ssh:
+      enableSsm: true
