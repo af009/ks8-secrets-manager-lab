@@ -6,9 +6,9 @@
 ## How to use?
 
 * Install make in order to run Makefile
+* Clone this repo
 
 ## First part: 
-
 ### Secrets Store CSI Secret driver and AWS Secrets and Configuration Provider (ASCP).
 
 1. Run ` make fp_runAll`
@@ -19,10 +19,10 @@
 
 
 1. Manually declaration
-   ```shell
-    AWS_REGION="us-east-1"
-    EKS_CLUSTERNAME="eksworkshop-eksctl"
-   ```
+ ```shell
+ AWS_REGION="us-east-1"
+ EKS_CLUSTERNAME="eksworkshop-eksctl"
+ ```
 2.    
 ```bash
 aws --region "$AWS_REGION" secretsmanager create-secret --name DBSecret_eksworkshop --secret-string '{"username":"foo", "password":"super-sekret"}';
