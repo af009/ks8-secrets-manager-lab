@@ -8,22 +8,19 @@
 * Install make in order to run Makefile
 * Clone this repo
 
-## First part: 
-### Secrets Store CSI Secret driver and AWS Secrets and Configuration Provider (ASCP).
+## First part: Create cluster, Secrets Store CSI Secret driver, AWS Secrets and Configuration Provider (ASCP).
 
 1. Run ` make fp_runAll`
 2. Finally, we wait until for the daemonsets confirmation.
 
-## Second Part:
-### Prepare secret and IAM access controls
-
+## Second Part: Prepare secret and IAM access controls
 
 1. Manually declaration
  ```shell
  AWS_REGION="us-east-1"
  EKS_CLUSTERNAME="eksworkshop-eksctl"
  ```
-2.    
+2. Run the following commands: 
 ```bash
 aws --region "$AWS_REGION" secretsmanager create-secret --name DBSecret_eksworkshop --secret-string '{"username":"foo", "password":"super-sekret"}';
 
@@ -67,18 +64,15 @@ eksctl create iamserviceaccount \
     --override-existing-serviceaccounts;
 ```
 
-## Third Part:
-###  Deploy pods with mounted secrets
+## Third Part: Deploy pods with mounted secrets
 
 1. Run `make part3_runAll`
 
-## Fourth Part:
+## Fourth Part: Sync with native Kuberbetes secrets
 
 1. Run `make part4_runAll`
 
-2. Verify the result:
-
-3. Then run the next command inside the pod bash:
+2. Verify the result running the next command inside the pod bash:
 ```shell
 export PS1='# '
 cd /mnt/secrets
